@@ -1,5 +1,5 @@
 if (localStorage.getItem("isLoggedIn") !== "true"){
-    window.location.replace("../login.html");
+    window.location.replace("../index.html");
 }
 
 document.getElementById("logout").addEventListener("click",function() {
@@ -16,7 +16,7 @@ fin.addEventListener("click", function(e){
 
 //oui pour sortir
 function agree(){
-    window.location.replace("../login.html");
+    window.location.replace("../index.html");
     localStorage.removeItem("isLoggedIn");
 }
 
