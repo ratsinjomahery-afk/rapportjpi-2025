@@ -1,5 +1,5 @@
 document.getElementById("createAccount").addEventListener("click", function(){
-    window.location.href="create/create.html";
+    window.location.replace("create/create.html");
 });
 
 //loginForm
@@ -71,9 +71,9 @@ document.addEventListener("keydown", (e)=>{
     }
 });
 
-history.pushState(null, "", location.href);
+history.pushState(null, "", location.replace);
 window.onpopstate = function () {
-    history.pushState(null, "", location.href);
+    history.pushState(null, "", location.replace);
     showModalVide("😏 Retour désactivé"," ","ATTENTION !");
 }
 
@@ -102,6 +102,7 @@ function showModalSuccess(message, title = "Message") {
     let modal = new bootstrap.Modal(document.getElementById('alertModalSuccess'));
     modal.show();
 }
+
 
 
 
