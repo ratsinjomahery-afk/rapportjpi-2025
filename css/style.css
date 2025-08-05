@@ -286,7 +286,13 @@ footer a{
     background-position: center;
     background-size: cover;
   }
-
+  
+  #spinner{
+  position: absolute;
+  margin-left: -250px;
+  margin-top: 10px;
+  }
+  
 }
 
 @media(max-width: 357px){
