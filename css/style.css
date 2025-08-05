@@ -1,3 +1,8 @@
+/* background dark*/
+#bgDark{
+  background : rgba(0,0,0,0.7);
+}
+
 #number{
   width: 400px;
 }
