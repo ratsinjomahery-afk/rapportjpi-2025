@@ -11,37 +11,39 @@
 </head>
 <body>
     <div id="bgImgLog">
-        <!--<nav class="navbar navbar-expand-sm bg-light navbar-dark fixed-top">
+        <div id="bgDark">
+            <!--<nav class="navbar navbar-expand-sm bg-light navbar-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="logo/log JPI.png" alt="logo-jpi" width="50px"></a>
+                </div>
+            </nav>-->
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="logo/log JPI.png" alt="logo-jpi" width="50px"></a>
-            </div>
-        </nav>-->
-        <div class="container-fluid">
-            <div class="d-flex flex justify-content-center align-items-center vh-100">
-                <form id="loginForm" class="border p-4 rounded text-white shadow was-validated">
-                    <h5 class="text-center">Login</h5>
-                    <div class="mb-3 mt-3">
-                        <label for="email" class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="logEmail" placeholder="Enter email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pwd" class="form-label">Password:</label>
-                        <input type="password" class="form-control" id="logPwd" placeholder="Enter password" name="pswd" required>
-                        <!--<button type="button" class="btn">Me</button>-->
-                    </div>
-                    <div class="form-check mb-3">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                        </label>
-                    </div>
+                <div class="d-flex flex justify-content-center align-items-center vh-100">
+                    <form id="loginForm" class="border p-4 rounded text-white shadow was-validated">
+                        <h5 class="text-center">Login</h5>
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="logEmail" placeholder="Enter email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd" class="form-label">Password:</label>
+                            <input type="password" class="form-control" id="logPwd" placeholder="Enter password" name="pswd" required>
+                            <!--<button type="button" class="btn">Me</button>-->
+                        </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
 
-                    <button type="submit" id="submit" class="col-md-12 btn btn-primary">Login</button>
-                    <span id="spinner"></span> 
-                    <p class="text-white fw-bold mt-3">Sign in or <button class="btn btn-success" id="createAccount">Create an account</button></p>
-                </form>  
+                        <button type="submit" id="submit" class="col-md-12 btn btn-primary">Login</button>
+                        <span id="spinner"></span> 
+                        <p class="text-white fw-bold mt-3">Sign in or <button class="btn btn-success" id="createAccount">Create an account</button></p>
+                    </form>  
+                </div>
+            </div>
             </div>
         </div>
-    </div>
 
     <!-- Modal Alert Vide -->
     <div class="modal fade" id="alertModalVide" tabindex="-1" aria-labelledby="alertModalLabelVide" aria-hidden="true">
@@ -88,4 +90,6 @@
 <script src="js/script.js"></script>
 </body>
 
+
 </html>
+
