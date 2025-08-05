@@ -1,11 +1,11 @@
 /* background dark*/
 #bgDark{
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color : rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6); /* mainty mangarahara */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 #number{
