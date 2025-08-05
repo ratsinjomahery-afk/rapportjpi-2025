@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Out file</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <!--logo-->
+    <div class="container-md mt-0 mb-3 px-2" id="rapport" style="max-width: 794px;">
+        <div class="row">
+            <div class="col-md-4 mt-0 mb-3">
+                <img src="../../logo/log JPI.png" width="120px" alt="logo JPI">
+            </div>
+            
+            <!--title-->
+            <div class="ms-auto col-md-8" id="header">
+                <h5 class="fw-bold mt-3 ms-2 text-primary">RAPPORT DE LA REUNION N°<span id="OutNumberOne"></span>/<span id="OutNumberTwo"></span>/BMJP/25</h5>
+            </div>
+        </div>
+        
+        <!--located-->
+        <div class="row">
+            <div class="col-md-8 mb-3 border shadow pt-3 ms-auto" id="locate">
+                <p>Lieu : <span id="placefr"></span></p>
+                <p>Date : <span id="datefr"></span></p>
+                <p>Heure de début : <span id="timeStartfr"></span></p>
+                <p>Heure de fin : <span id="timeEndfr"></span></p>
+            </div>
+        </div>
+        
+        <!--leader members-->
+        <div class="row">
+            <div class="col-md-12 ms-0 mt-3 fw-bold">
+                <p>♠ Dirigeant de la réunion : <span id="meetingLeader"></span></p>
+                <p>♠ Membres du bureau présent : <span id="broadMembers"></span></p>
+                <p>♠ Participants : <span id="numberParticipants"></span></p>
+            </div>
+        </div>
+        <div class="row border-top mb-3 col-md-4 ms-auto me-auto"></div>
+        
+        <!--agenda-->
+        <div class="row">
+            <div class="col-md-6 text-center mt-3">
+                <h5>📚 <span id="agenda">ORDRE DU JOUR</span> :</h5>
+            </div>
+        </div>
+        <div class="row fw-bold ms-2 mb-3">
+            <span id="getAgenda"></span>
+        </div>
+        
+        <!--objective-->
+        <div class="row">
+            <div class="col-md-6 text-center ms-5 mt-3">
+                <h5>📚 <span id="objective">DEROULEMENT DE LA REUNION</span> :</h5>
+            </div>
+            <div class="col-md-11 ms-3 mb-3" id="objectiveMeeting">
+                <p id="getObjective"></p>
+            </div>
+        </div>
+        
+        <!--secretariat-->
+        <div class="row mb-3 col-md-4 ms-auto" ><p>®️ S.T</p><span id="getSecretariat"></span></div>
+    </div>
+    
+    <script src="../../js/getfr.js"></script>
+    
+</body>
+</html>
