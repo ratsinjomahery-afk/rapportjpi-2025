@@ -55,6 +55,8 @@ async function logForm (e){
         }, 15000);
     } else {
         showModalVide("🤦‍♂️ Email ou mot de passe incorrect !","ATTENTION !");
+        email.textContent = "";
+        password.textContent = "";
     }
 }
 
@@ -100,6 +102,7 @@ function showModalSuccess(message, title = "Message") {
     let modal = new bootstrap.Modal(document.getElementById('alertModalSuccess'));
     modal.show();
 }
+
 
 
 
