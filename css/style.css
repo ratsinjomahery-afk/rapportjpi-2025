@@ -1,6 +1,9 @@
 /* background dark*/
 #bgDark{
-  background-color : rgba(0, 0, 0, 0.7);
+  background-color : rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 #number{
