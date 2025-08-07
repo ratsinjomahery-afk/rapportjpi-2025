@@ -6,39 +6,47 @@
     <title>Formulaire Requis</title>
     <link rel="icon" href="logo/log JPI.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="bgImgLog">
-        <!--<nav class="navbar navbar-expand-sm bg-light navbar-dark fixed-top">
+    <div id="bgImgLogin">
+        <div id="bgDarkLogin">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="logo/log JPI.png" alt="logo-jpi" width="50px"></a>
+                </div>
+            </nav>
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="logo/log JPI.png" alt="logo-jpi" width="50px"></a>
-            </div>
-        </nav>-->
-        <div class="container-fluid">
-            <div class="d-flex flex justify-content-center align-items-center vh-100">
-                <form id="loginForm" class="border p-4 rounded text-white shadow was-validated">
-                    <h5 class="text-center">Login</h5>
-                    <div class="mb-3 mt-3">
-                        <label for="email" class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="logEmail" placeholder="Enter email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pwd" class="form-label">Password:</label>
-                        <input type="password" class="form-control" id="logPwd" placeholder="Enter password" name="pswd" required>
-                        <!--<button type="button" class="btn">Me</button>-->
-                    </div>
-                    <div class="form-check mb-3">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                        </label>
-                    </div>
+                <div class="d-flex flex justify-content-center align-items-center vh-100">
+                    <form id="loginForm" class=" p-4 rounded text-white was-validated blurred-box">
 
-                    <button type="submit" id="submit" class="col-md-12 btn btn-primary">Login</button>
-                    <span id="spinner"></span> 
-                    <p class="text-white fw-bold mt-3">Sign in or <button class="btn btn-success" id="createAccount">Create an account</button></p>
-                </form>  
+                        <h5 class="text-center">Login</h5>
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="logEmail" placeholder="Enter email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd" class="form-label">Password:</label>
+                            <input type="password" minlength="6" class="form-control" id="logPwd" placeholder="Enter password" name="pswd" required>
+
+                            <!--<button type="button" class="btn">Me</button>-->
+                        </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
+
+                        <button id="submit" class="btn btn-primary btn-progress">
+                            <div class="progress-bar" id="progressInside" style="width: 0%;"></div>
+                            <span id="btnText">Login</span>
+                        </button>
+
+                        <span id="spinner"></span> 
+                        <p class="text-white fw-bold mt-3">Sign in or <button class="btn btn-success" id="createAccount">Create an account</button></p>
+                    </form>  
+                </div>
             </div>
         </div>
     </div>
@@ -61,7 +69,7 @@
         </div>
     </div>
 
-        <!-- Modal Alert Succès -->
+    <!-- Modal Alert Succès -->
     <div class="modal fade" id="alertModalSuccess" tabindex="-1" aria-labelledby="alertModalLabelSuccess" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -72,20 +80,20 @@
                 <div class="modal-body ms-auto me-auto" id="modalAlertBodySuccess">
                     <!-- Soratra miseho ato -->
                 </div>
-                
+
             </div> <!-- modal-content -->
         </div>   <!-- modal-dialog -->
     </div>     <!-- modal -->
 
-<!--footer-->
-<footer>
-    <div class="row text-white">
-        <div class="col-md-4 fixed-bottom"><p>© Copyright 2025 — <a href="https://www.facebook.com/Ratsinjozafy.Tsiry.Nantenaina.Mahery.Andrianina.3" target="_blank">Mahery Andrianina</a></p></div>
-    </div>
-</footer>
+    <!--footer-->
+    <footer>
+        <div class="row text-white" id="sign">
+            <div class="col-md-4"><p>© Copyright 2025 — <a href="https://www.facebook.com/Ratsinjozafy.Tsiry.Nantenaina.Mahery.Andrianina.3" target="_blank">Mahery Andrianina</a></p></div>
+        </div>
+    </footer>
 
-<!--script-->
-<script src="js/script.js"></script>
+    <!--script-->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
