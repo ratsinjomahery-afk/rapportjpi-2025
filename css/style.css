@@ -94,7 +94,11 @@
 }
 
 #loginForm{
-  width: 600px;
+  background : url('https://cdn.pixabay.com/photo/2015/10/27/08/51/autumn-1008520_1280.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 500px;
 }
 
 #textCreate{
