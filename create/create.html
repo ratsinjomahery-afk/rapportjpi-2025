@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>createAcount</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="bgImgCreate">
+        <div id="bgDark">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="../logo/log JPI.png" alt="logo-jpi" width="50px"></a>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <div class="d-flex flex justify-content-center text-white align-items-center vh-100">
+                    <form id="registerForm" class="border p-4 rounded was-validated blurred-box">
+
+                        <!--création du compte-->
+
+                        <label class="fw-bold text-white" id="textCreate">Create your account</label>
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label fw-bold">Create your email :</label>
+                            <input type="email" class="form-control" id="regEmail" placeholder="Enter email" name="email" required>
+                        </div>
+
+                        <!--création de mot de passe-->
+                        <div class="mb-3">
+                            <label for="pwd"class="form-label fw-bold">Create your password :</label>
+                            <input type="password" class="form-control" id="regPwd" placeholder="Enter password" name="pswd" required>
+                        </div>
+                        <div class="form-check mb-3">
+                        </div>  
+                        <button type="submit" id="create" class="col-md-12 btn btn-primary shadow">Create</button>
+                        <span id="spinner"></span>
+                        <p class="text-white fw-bold mt-3 text-center">Already have an account?<a id="createAcount" class="text-danger" onclick="login()"> Log in</a></p>
+                    </form>  
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Alert Vide -->
+        <div class="modal fade" id="alertModalVide" tabindex="-1" aria-labelledby="alertModalLabelVide" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h5 class="modal-title ms-auto" id="alertModalLabelVide">Message</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    </div>
+                    <div class="modal-body ms-auto me-auto" id="modalAlertBodyVide">
+                        <!-- Soratra miseho ato -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Alert Succès -->
+        <div class="modal fade" id="alertModalSuccess" tabindex="-1" aria-labelledby="alertModalLabelSuccess" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title ms-auto" id="alertModalLabelSuccess">Message</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    </div>
+                    <div class="modal-body ms-auto me-auto" id="modalAlertBodySuccess">
+                        <!-- Soratra miseho ato -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div> <!-- modal-content -->
+            </div>   <!-- modal-dialog -->
+        </div>     <!-- modal -->
+    </div>
+</div>
+
+<!--footer-->
+    <footer>
+        <div class="row text-white" id="sign">
+            <div class="col-md-4"><p>© Copyright 2025 — <a href="https://www.facebook.com/Ratsinjozafy.Tsiry.Nantenaina.Mahery.Andrianina.3" target="_blank">Mahery Andrianina</a></p></div>
+        </div>
+    </footer>
+
+
+<script>
+
+    // createForm
+    async function sha256(text) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(text);
+        const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+        return hashHex;
+    }
+    
+    async function createForm (e){
+        e.preventDefault();
+        const email = document.getElementById("regEmail").value;
+        const password = document.getElementById("regPwd").value;
+        
+        if (!email || !password) {
+            // alert("Veuillez remplir tous les champs.");
+
+            showModalVide("😡 Veuillez remplir tous les champs svp ! 😡","ATTENTION !");
+            return;
+        } else if (password.length < 20){
+            showModalVide("Le mot de passe doit contenir au moins 20 caractères !","ATTENTION !");
+            return;
+        }
+        
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        
+        const exist = users.find(user => user.email === email);
+        if (exist) {
+            showModalVide("😏 Ce compte existe déjà ! Créé une autre 🤷‍♂️","ATTENTION !");
+            return;
+        }
+        
+        const hashedPassword = await sha256(password);
+        users.push({ email, password: hashedPassword });
+        localStorage.setItem("users", JSON.stringify(users));
+        
+        let spin = document.getElementById("spinner");
+        let textSubmit = document.getElementById("create");
+        spin.className = "spinner-border spinner-border-sm";
+        
+        textSubmit.textContent = "Veuillez patientez 😊...";
+        textSubmit.disabled = true;
+        
+        setTimeout (()=> {
+            textSubmit.textContent = "Création du compte ...";
+        }, 5000);
+        
+        setTimeout (()=> {
+            showModalSuccess("😊 Compte créé avec succès 😉", "Succès 👍");
+        }, 8000);
+        
+        setTimeout (()=> {
+            window.location.replace("../index.html");  
+        }, 10000);
+    }
+    
+    //boutton create
+    let btnCreate = document.getElementById("create");
+    btnCreate.addEventListener("click", function (e){
+        createForm(e);
+        e.preventDefault();
+    });
+    document.addEventListener("keydown", function(e){
+        if (e.key == "Enter"){
+            e.preventDefault();
+            createForm(e);
+        }
+    });
+    
+    // retour désactivé
+    history.pushState(null, "", location.replace);
+    window.onpopstate = function () {
+        history.pushState(null, "", location.replace);
+        showModalVide("😒 Retour désactivé ! ", " ATTENTION !");
+    }
+    
+    //button login
+    function login(){
+        window.location.replace("../index.html");
+    }
+    
+    //Modal Alert Vide
+    function showModalVide(message, title = "Message") {
+        const modalBody = document.getElementById("modalAlertBodyVide");
+        const modalTitle = document.getElementById("alertModalLabelVide");
+        
+        modalBody.textContent = message;
+        modalTitle.textContent = title;
+        
+        // Mampiseho ny modal
+        let modal = new bootstrap.Modal(document.getElementById('alertModalVide'));
+        modal.show();
+    }
+    
+    //Modal Alert succès
+    function showModalSuccess(message, title = "Message") {
+        const modalBody = document.getElementById("modalAlertBodySuccess");
+        const modalTitle = document.getElementById("alertModalLabelSuccess");
+        
+        modalBody.textContent = message;
+        modalTitle.textContent = title;
+        
+        // Mampiseho ny modal
+        let modal = new bootstrap.Modal(document.getElementById('alertModalSuccess'));
+        modal.show();
+    }
+    
+</script>
+</body>
+
+</html>
