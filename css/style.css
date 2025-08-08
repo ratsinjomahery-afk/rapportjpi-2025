@@ -89,8 +89,14 @@
   text-decoration: none;
 }
 
+/* image background formulaire */
 #registerForm{
-  width: 600px;
+  width: 500px;
+  background : url('https://cdn.pixabay.com/photo/2017/10/06/07/29/guava-2822182_960_720.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 500px;
 }
 
 #loginForm{
