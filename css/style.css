@@ -1,3 +1,7 @@
+body{
+  cursor: pointer;
+}
+
 #number{
   width: 400px;
 }
@@ -100,7 +104,7 @@
 }
 
 #loginForm{
-  background : url('https://cdn.pixabay.com/photo/2015/10/27/08/51/autumn-1008520_1280.png');
+  background : url('https://cdn.pixabay.com/photo/2017/06/05/22/20/png-2375510_960_720.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -359,6 +363,13 @@ footer:hover a{
     background-size: cover;
   }
 
+  #loginForm{
+  background : url('https://cdn.pixabay.com/photo/2017/06/05/22/20/png-2375510_960_720.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 500px;
+  }
 }
 
 @media(max-width: 357px){
