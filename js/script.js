@@ -82,7 +82,7 @@ document.addEventListener("keydown", (e)=>{
 history.pushState(null, "", location.replace);
 window.onpopstate = function () {
     history.pushState(null, "", location.replace);
-    showModalVide("😏 Retour désactivé"," ","ATTENTION !");
+    showModalVide("😏 Entrez votre adresse e-mail pour continuer"," ","ATTENTION !");
 }
 
 //Modal Alert Vide
@@ -110,6 +110,7 @@ function showModalSuccess(message, title = "Message") {
     let modal = new bootstrap.Modal(document.getElementById('alertModalSuccess'));
     modal.show();
 }
+
 
 
 
